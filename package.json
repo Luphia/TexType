@@ -1,0 +1,23 @@
+{
+  "name": "textype",
+  "version": "0.0.0",
+  "description": "Find the data type by regular expression",
+  "main": "index.js",
+  "scripts": {
+    "test": "bin/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luphia/TexType.git"
+  },
+  "keywords": [
+    "regexp",
+    "datatype"
+  ],
+  "author": "Luphia Chang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Luphia/TexType/issues"
+  },
+  "homepage": "https://github.com/Luphia/TexType#readme"
+}
