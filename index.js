@@ -33,6 +33,9 @@ textype.typeOf = function (data) {
 			if(Buffer.isBuffer(data)) {
 				rs = 1;
 			}
+			else {
+				rs = 2;
+			}
 			break;
 		case 'boolean':
 			rs = 90;
