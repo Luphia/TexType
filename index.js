@@ -1,6 +1,7 @@
 var reg = {};
 reg.publicIP = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 reg.email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+reg.number = /^-?\d+\.?\d*$/;
 reg.json = /^{}$|^\[\]$/;
 
 var textype = function () {};
@@ -10,6 +11,9 @@ textype.isPublicIP = function (text) {
 textype.isEmail = function (text) {
 	return reg.email.test(text);
 };
+textype.isNumber = function (text) {
+	return reg.number.test(text);
+}
 textype.isJSON = function (text) {
 	var rs = false;
 	try {
@@ -48,6 +52,9 @@ textype.typeOf = function (data) {
 			if(this.isJSON(data)) {
 				rs = 2;
 			}
+			else if(this.isNumber(data)) {
+				rs = 91;
+			}
 			break;
 		case 'undefined':
 		default:
@@ -57,7 +64,7 @@ textype.typeOf = function (data) {
 	return rs;
 };
 
-textype.multiType = function () {
+textype.multiType = function (text) {
 	var type = [];
 	for(var k in reg) {
 		if(reg[k].test(text)) {

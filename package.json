@@ -1,6 +1,6 @@
 {
   "name": "textype",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Find the data type by regular expression",
   "main": "index.js",
   "scripts": {
