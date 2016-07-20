@@ -4,8 +4,17 @@ reg.email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\
 reg.number = /^-?\d+\.?\d*$/;
 reg.json = /^{}$|^\[\]$/;
 reg.internalIP = /(^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.)/;
+reg.URL = /https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/;
 
 var textype = function () {};
+textype.is = function (type, text) {
+	var rs;
+	if(reg[type] && typeof(reg[type].test) == 'function') {
+		rs = reg[type].test(text);
+	}
+	return rs;
+
+};
 textype.isIP = function (text) {
 	return reg.IP.test(text);
 };
@@ -20,6 +29,9 @@ textype.isEmail = function (text) {
 };
 textype.isNumber = function (text) {
 	return reg.number.test(text);
+}
+textype.isURL = function (text) {
+	return reg.URL.test(text);
 }
 textype.isJSON = function (text) {
 	var rs = false;
