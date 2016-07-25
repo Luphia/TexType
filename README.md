@@ -13,6 +13,17 @@ var textype = require('textype');
 var data = '10.10.221.15';
 textype.isPublicIP(data);
 ```
+### is internal ip ?
+```node
+var textype = require('textype');
+var data = '10.10.221.15';
+textype.isInternalIP(data);
+```
+### is url ?
+```node
+var textype = require('textype');
+var data = 'https://tanpopo.cc';
+textype.isURL(data);
 ### is e-mail ?
 ```node
 var textype = require('textype');
@@ -24,6 +35,12 @@ textype.isEmail(data);
 var textype = require('textype');
 var data = '10452.70';
 textype.isNumber(data);
+```
+### is ObjectID ?
+```node
+var textype = require('textype');
+var data = '45cbc4a0e4123f6920000002';
+textype.isObjectID(data);
 ```
 ### is JSON ?
 ```node

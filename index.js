@@ -5,6 +5,7 @@ reg.number = /^-?\d+\.?\d*$/;
 reg.json = /^{}$|^\[\]$/;
 reg.internalIP = /(^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.)/;
 reg.URL = /https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/;
+reg.ObjectID = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
 
 var textype = function () {};
 textype.is = function (type, text) {
@@ -29,10 +30,13 @@ textype.isEmail = function (text) {
 };
 textype.isNumber = function (text) {
 	return reg.number.test(text);
-}
+};
 textype.isURL = function (text) {
 	return reg.URL.test(text);
-}
+};
+textype.isObjectID = function (text) {
+	return reg.ObjectID.test(text);
+};
 textype.isJSON = function (text) {
 	var rs = false;
 	try {
@@ -46,6 +50,7 @@ textype.isJSON = function (text) {
 
 	return rs;
 };
+
 
 // 1: Buffer, 2: JSON, 90: Boolean, 91: Number, 99: String, 0: Undefined
 textype.typeOf = function (data) {
