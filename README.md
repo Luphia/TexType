@@ -24,6 +24,7 @@ textype.isInternalIP(data);
 var textype = require('textype');
 var data = 'https://tanpopo.cc';
 textype.isURL(data);
+```
 ### is e-mail ?
 ```node
 var textype = require('textype');
